@@ -7,9 +7,13 @@ import './sass/style.scss';
 import Loader from './loader';
 import './modules/pubSubInterceptor';
 
+// See documentation for usage info https://www.npmjs.com/package/primo-explore-hathitrust-availability
+import 'primo-explore-hathitrust-availability';
+
+
 (function(){
   let customType = 'centralCustom';
-  let moduleList = ['ng', 'oc.lazyLoad', 'angularLoad', 'ngMaterial', 'pubSubInterceptor'];
+  let moduleList = ['ng', 'oc.lazyLoad', 'angularLoad', 'ngMaterial', 'pubSubInterceptor', 'hathiTrustAvailability'];
                     
   let app = angular.module(customType, moduleList);
 

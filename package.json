@@ -8,12 +8,12 @@
     "Mehmet Celik"
   ],
   "primo": {
-    "url": "https://kuleuven.limo.libis.be",
-    "institution": "32KUL_KUL",
-    "vidId": "KULeuven",
+    "url": "https://test.primo.exlibrisgroup.com",
+    "institution": "11INST",
+    "vidId": "MYVIEW",
     "build": {
       "views": [
-        "KULeuven"
+        "MYVIEW"
       ],
       "dist": "./dist",
       "resources": "./resources",
@@ -54,6 +54,6 @@
     "webpack-cli": "^4.9.2"
   },
   "dependencies": {
-    "primo-explore-hathitrust-availability": "^2.7.0"
+    "primo-explore-hathitrust-availability": "^2.7.2"
   }
 }

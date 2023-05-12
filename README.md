@@ -3,7 +3,11 @@
 **An opionated development environment for Primo**   
 [Yarn](https://yarnpkg.com/) is my prefered package manager. But any will do.
 
-Jump to [getting started](#usage)
+Jump to:
+- [Getting started](#usage)
+- [Creating a new component](#creating-a-new-component)
+- [Interceptors](#interceptors)
+- [Importing and using packages made by others](#importing-and-using-packages-made-by-others)
 
 ## Directory structure
 ```bash
@@ -60,10 +64,10 @@ Is used to configure and setup the environment
   "primo": {
     "url": "https://test.primo.exlibrisgroup.com",       #base url of primo
     "institution": "11INST",                             #institution id
-    "vidId": "VIEW",                                     #view id to use with `yarn start`
+    "vidId": "MYVIEW",                                   #view id to use with `yarn start`
     "build": {                                           #list of views to build
       "views": [
-        "VIEW"
+        "MYVIEW"
       ],
       "dist": "./dist",                                  #build folder
       "resources": "./resources",                        #resource folder
@@ -194,3 +198,34 @@ For example: emit an event every time a search is performed.
 document.addEventListener("pnxBaseURLEvent", (e) => console.log(e))
 ```
 This will catch the emited "pnxBaseURLEvent" event before and after the request.
+
+## Importing and using packages made by others
+For example [primo-explore-hathitrust-availability](https://www.npmjs.com/package/primo-explore-hathitrust-availability)   
+
+```If you do not need this component remove it from your environment by reversing these steps.```
+
+
+- Add dependency to package.json   
+```json
+  "dependencies": {
+    "primo-explore-hathitrust-availability": "^2.7.2"
+  }
+```  
+
+- Import module in ```src/index.js``` and add to module list
+```js
+import 'primo-explore-hathitrust-availability';
+let moduleList = ['ng', 'oc.lazyLoad', 'angularLoad', 'ngMaterial', 'pubSubInterceptor', 'hathiTrustAvailability'];
+```
+
+- Create a component named hathi-trust and append it to the 'prm-search-result-availability-line-after' hook in all views
+```js
+export let HathiTrustComponent = {
+    name: 'hathi-trust',
+    config: {
+        template: '<hathi-trust-availability hide-online="true" msg="WOW, HathiTrust! Lucky you!"></hathi-trust-availability>'
+    },
+    enabled: true,
+    appendTo: 'prm-search-result-availability-line-after',
+    enableInView: '.*'
+} 
