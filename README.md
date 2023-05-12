@@ -193,4 +193,4 @@ For example: emit an event every time a search is performed.
 ```js
 document.addEventListener("pnxBaseURLEvent", (e) => console.log(e))
 ```
-This will emit an event before the request and after the request.
+This will catch the emited "pnxBaseURLEvent" event before and after the request.
