@@ -4,6 +4,7 @@
 [Yarn](https://yarnpkg.com/) is my prefered package manager. But any will do.
 
 Jump to:
+- [Configure](#packagejson)
 - [Getting started](#usage)
 - [Creating a new component](#creating-a-new-component)
 - [Interceptors](#interceptors)
@@ -59,7 +60,7 @@ for example: ```./custom/11INST-VIEW/hello.html``` or ```/discovery/custom/11INS
 All static view specific css, html, img and js files
 
 ## package.json
-Is used to configure and setup the environment
+Setup your environment first before you do anything else.
 ```json
   "primo": {
     "url": "https://test.primo.exlibrisgroup.com",       #base url of primo
